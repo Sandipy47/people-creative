@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <section id="registration" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100">
+        <h2>Register</h2>
+        <div class="form-container">
+            <form id="registrationForm" action="#" method="POST">
+                <div class="form-group" data-aos="fade-right" data-aos-delay="100">
+                    <label for="username_register">Username</label>
+                    <input type="text" id="username_register" name="username" required>
+                </div>
+                <div class="form-group" data-aos="fade-right" data-aos-delay="200">
+                    <label for="email_register">Email</label>
+                    <input type="email" id="email_register" name="email" required>
+                </div>
+                <div class="form-group password-container" data-aos="fade-right" data-aos-delay="300">
+                    <label for="password_register">Password</label>
+                    <input type="password" id="password_register" name="password" required>
+                    <span class="password-toggle" id="passwordToggle_register">👁️</span>
+                </div>
+                <div class="form-group password-container" data-aos="fade-right" data-aos-delay="400">
+                    <label for="confirm_password_register">Confirm Password</label>
+                    <input type="password" id="confirm_password_register" name="confirm_password" required>
+                    <span class="password-toggle" id="confirmPasswordToggle_register">👁️</span>
+                </div>
+                <button type="submit">Register</button>
+            </form>
+            <p class="form-link" data-aos="fade-up" data-aos-delay="500">Already have an account? <a href="#signin">Sign In</a></p>
+            <div id="registrationError" class="error-message"></div>
+        </div>
+    </section>
+</body>
+</html>

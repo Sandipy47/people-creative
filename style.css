@@ -1,0 +1,442 @@
+
+        :root {
+            --primary-gradient: linear-gradient(135deg, #6a11cb, #2575fc);
+            --secondary-color: #ffcc00;
+            --text-color: #e0e0e0;
+            --dark-bg: rgba(0, 0, 0, 0.4);
+            --card-bg: rgba(255, 255, 255, 0.08);
+            --border-color: rgba(255, 255, 255, 0.15);
+            --button-hover: #ff9900;
+            --input-bg: rgba(255, 255, 255, 0.1);
+            --input-border: rgba(255, 255, 255, 0.3);
+            --error-color: #e74c3c;
+        }
+
+        body {
+            background: var(--primary-gradient);
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            color: var(--text-color);
+            line-height: 1.7;
+            overflow-x: hidden;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            text-align: center;
+            padding: 40px 20px 20px;
+            background: var(--dark-bg);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            margin: 0;
+            color: #fff;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            padding: 8px 15px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap; /* Prevent wrapping on smaller screens */
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        nav a:hover::before {
+            left: 100%;
+        }
+
+        /* --- Section Styling (General) --- */
+        section {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 50px;
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            position: relative;
+            z-index: 1; /* Ensure content is above any background effects */
+        }
+
+        section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 35px;
+            color: #fff;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        /* --- Buttons --- */
+        .btn {
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            background: var(--secondary-color);
+            color: #333;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block; /* For centering or spacing */
+            text-decoration: none; /* For anchor buttons */
+        }
+
+        .btn:hover {
+            background: var(--button-hover);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* --- About Section Specifics --- */
+        #about h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--heading-color);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        #about ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+
+        #about li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 30px;
+            font-size: 1.05rem;
+        }
+
+        #about li strong {
+            color: var(--secondary-color);
+        }
+
+        #about li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+
+        /* --- Services Section Specifics --- */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-item {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        #services h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #services h3::before {
+            content: '💡';
+            font-size: 1.4em;
+            line-height: 1;
+        }
+
+        #services ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 10px;
+        }
+
+        #services li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 25px;
+            font-size: 0.95rem;
+        }
+
+        #services li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        /* --- Forms Styling (Sign In, Registration, Contact Us) --- */
+        .form-container {
+            width: 100%;
+            max-width: 450px; /* Adjust as needed */
+            margin: 0 auto;
+            text-align: left; /* Align form labels/inputs left */
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ccc;
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid var(--input-border);
+            border-radius: 8px;
+            background-color: var(--input-bg);
+            color: white;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        textarea:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.3);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .password-container {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #ccc;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .password-toggle:hover {
+            color: white;
+        }
+
+        .error-message {
+            color: var(--error-color);
+            margin-top: 15px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 10px;
+            background-color: rgba(231, 76, 60, 0.2);
+            border-radius: 5px;
+            display: none; /* Hidden by default */
+        }
+
+        /* --- Specific Form Button Styles --- */
+        #signin button[type="submit"] {
+            background-color: #e74c3c; /* Red for Sign In */
+        }
+        #signin button[type="submit"]:hover {
+            background-color: #c0392b;
+        }
+
+        #registration button[type="submit"] {
+            background-color: #28a745; /* Green for Registration */
+        }
+        #registration button[type="submit"]:hover {
+            background-color: #1e7e34;
+        }
+
+        #contactus button[type="submit"] {
+            background-color: #007bff; /* Blue for Contact Us */
+        }
+        #contactus button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* --- Link Styles within Forms --- */
+        .form-link {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 0.95rem;
+        }
+
+        .form-link a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: text-decoration 0.3s ease, color 0.3s ease;
+        }
+
+        .form-link a:hover {
+            text-decoration: underline;
+            color: var(--button-hover);
+        }
+
+        /* --- Contact Info Specifics --- */
+        .contact-info {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--heading-color);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .contact-info p {
+            line-height: 1.8;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+        }
+
+        .contact-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: text-decoration 0.3s ease, color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+            color: var(--button-hover);
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+            nav a {
+                width: fit-content;
+                margin: 0 auto;
+            }
+            section {
+                padding: 30px;
+                margin: 40px 20px;
+            }
+            section h2 {
+                font-size: 2.2rem;
+            }
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+            #about h3, #services h3, .contact-info h3 {
+                font-size: 1.6rem;
+            }
+            p, li, label, input, textarea, .btn {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            nav a {
+                font-size: 0.9rem;
+                padding: 6px 12px;
+            }
+            section {
+                padding: 20px;
+                margin: 30px 15px;
+            }
+            section h2 {
+                font-size: 1.8rem;
+            }
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            .password-toggle {
+                font-size: 1rem;
+                right: 10px;
+            }
+        }
+    
